@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-export const AddCategory = ({ setCategories, cat }) => {
+export const AddCategory = ({ onNewCategory }) => {
 
     const [inputValue, setInputValue] = useState('')
 
@@ -13,7 +13,8 @@ export const AddCategory = ({ setCategories, cat }) => {
         event.preventDefault()
         if( inputValue.trim().length <= 4 ) return;
 
-        setCategories(cat => [ inputValue, ...cat ])
+        // setCategories(cat => [ inputValue, ...cat ])
+        onNewCategory( inputValue.trim() )
         setInputValue('')
         
     }
